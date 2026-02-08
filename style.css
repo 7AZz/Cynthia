@@ -23,7 +23,7 @@ body {
     background-color: black;
 }
 
-#minicircle{
+#minicircle {
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
     width: 15px;
     height: 15px;
@@ -34,12 +34,12 @@ body {
 
 }
 
-.bounding{
+.bounding {
     width: fit-content;
     overflow: hidden;
 }
 
-.bounding .boundingelem{
+.bounding .boundingelem {
     transform: translateY(100%);
 }
 
@@ -100,7 +100,7 @@ body {
     text-align: right;
 }
 
-#miniheading{
+#miniheading {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -108,14 +108,14 @@ body {
     padding-right: 50px;
 }
 
-#miniheading h5{
+#miniheading h5 {
     text-transform: uppercase;
     margin-top: .5vw;
     font-size: 1vw;
     text-align: right;
 }
 
-#herofooter{
+#herofooter {
     padding: 0 2vw;
     width: 100%;
     position: absolute;
@@ -125,19 +125,19 @@ body {
     justify-content: space-between;
 }
 
-#herofooter a{
+#herofooter a {
     text-decoration: none;
     font-size: 15px;
     color: white;
     text-transform: uppercase;
 }
 
-#herofooter #iconset{
+#herofooter #iconset {
     display: flex;
     gap: 5px;
 }
 
-#herofooter .circle{
+#herofooter .circle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,7 +147,7 @@ body {
     background-color: #888;
 }
 
-#second{
+#second {
     color: #fff;
     padding-top: 200px;
     padding-right: 10vw;
@@ -156,7 +156,7 @@ body {
     height: 100vh;
 }
 
-.elem{
+.elem {
     display: flex;
     position: relative;
     align-items: center;
@@ -167,24 +167,29 @@ body {
     border-top: 1px solid #888;
 }
 
-.elem h1{
+.elem h1 {
     text-transform: uppercase;
     font-size: 6.7vw;
     opacity: .7;
 }
 
-.elemlast{
+.elemlast {
     border-bottom: 1px solid #888;
 }
 
-.elem img{
-    display: none;
+.elem img {
+    opacity: 0;
+    /* hidden by default, not display:none */
+    pointer-events: none;
+    /* ignore mouse events */
     height: 140%;
     z-index: 999;
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
-#about{
+#about {
     display: flex;
     align-items: center;
     gap: 50px;
@@ -192,25 +197,25 @@ body {
     padding: 10vw 10vw;
     padding-left: 40vw;
     width: 100%;
-    
+
 }
 
-#textabout{
+#textabout {
     width: 25rem;
 }
 
-#textabout h5{
+#textabout h5 {
     text-transform: uppercase;
     opacity: .6;
     margin-bottom: 10px;
 }
 
-#textabout p{
+#textabout p {
     line-height: 1.7;
     margin-bottom: 30px;
 }
 
-#textabout a{
+#textabout a {
     padding: 12px 22px;
     border: 1px solid #fff;
     border-radius: 100px;
@@ -220,28 +225,28 @@ body {
     text-transform: uppercase;
 }
 
-#about img{
+#about img {
     width: 250px;
 }
 
-#subscribe{
+#subscribe {
     color: #fff;
     padding: 20px 30px;
     padding-bottom: 7vw;
 }
 
-#subscribe h5{
+#subscribe h5 {
     text-transform: uppercase;
     opacity: .6;
 }
 
-#subscribe h3{
+#subscribe h3 {
     text-transform: uppercase;
     font-size: 14px;
     margin-top: 10px;
 }
 
-#footer{
+#footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -249,16 +254,17 @@ body {
     padding: 20px 30px;
 }
 
-#footerleft{
+#footerleft {
     display: flex;
     gap: 20px
 }
 
-#footerright{
+#footerright {
     display: flex;
     gap: 30px
 }
-#footer a{
+
+#footer a {
     text-transform: uppercase;
     text-decoration: none;
     font-size: 14px;

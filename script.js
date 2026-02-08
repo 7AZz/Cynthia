@@ -10,13 +10,13 @@ function firstPageAnim() {
     y: "-10",
     opacity: 0,
     duration: 1.5,
-    ease: Expo.easeInOut,
+    ease: "expo.inOut",
   })
 
     .to(".boundingelem", {
       y: "0",
       duration: 2,
-      ease: Expo.easeInOut,
+      ease: "expo.inOut",
       delay: -1,
       stagger: 0.2,
     })
@@ -26,11 +26,11 @@ function firstPageAnim() {
       opacity: 0,
       duration: 1.5,
       delay: -1,
-      ease: Expo.easeInOut,
+      ease: "expo.inOut",
     });
 }
 
-var timeout ;
+var timeout;
 function circlemouseanim() {
   var xscale = 1;
   var yscale = 1;
@@ -47,9 +47,9 @@ function circlemouseanim() {
 
     circlemousefollower(xscale, yscale);
 
-     timeout = setTimeout(function(){
-        document.querySelector("#minicircle").style.transform =
-      `translate(${dets.clientX}px, ${dets.clientY}px) scale(1, 1)`; // Reset to original size after a short delay
+    timeout = setTimeout(function () {
+      document.querySelector("#minicircle").style.transform =
+        `translate(${dets.clientX}px, ${dets.clientY}px) scale(1, 1)`; // Reset to original size after a short delay
     }, 100);
   });
 }
@@ -64,3 +64,34 @@ function circlemousefollower(xscale, yscale) {
 firstPageAnim();
 circlemousefollower();
 circlemouseanim();
+
+document.querySelectorAll(".elem").forEach(function (elem) {
+  var rotate = 0;
+  var diffrot = 0;
+
+  elem.addEventListener("mouseleave", function (details) {
+    gsap.to(elem.querySelector("img"), {
+      opacity: 0,
+      ease: "power3.out",
+      duration: 0.5,
+    });
+  });
+
+  elem.addEventListener("mousemove", function (details) {
+    var rect = elem.getBoundingClientRect();
+    var diff = details.clientY - rect.top;
+    var diffLeft = details.clientX - rect.left;
+    diffrot = details.clientX - rotate;
+    rotate = details.clientX;
+
+    gsap.to(elem.querySelector("img"), {
+      opacity: 1,
+      ease: "power3.out",
+      x: diffLeft,
+      y: diff,
+      xPercent: -50,
+      yPercent: -50,
+      rotate: gsap.utils.clamp(-15, 15, diffrot * 0.5),
+    });
+  });
+});
